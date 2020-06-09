@@ -116,7 +116,7 @@
 <!-- ----------------------------------------------------------------------------------------------------- -->
               
 
-               <form class="btn-group" method="POST" action="/suscriptor/Servicios" enctype="multipart/form-data">
+               <form class="btn-group" method="POST" action="/suscriptor/SuscribirceServicio" enctype="multipart/form-data">
                @csrf
                <input type="hidden" name="idusuario" class="form-control" id="id" value="{{auth()->id()}}">
                <input type="hidden" name="idservicio" class="form-control" id="id" value="{{ $item->id }}">
