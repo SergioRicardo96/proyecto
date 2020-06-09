@@ -56,8 +56,8 @@ Route::get('/servicios', function () {
 
 
  // RUTAS PARA PODER VALIDAR EL CORREO
-Route::get('/email_available', 'EmailAvailable@index')->middleware('auth');
-Route::post('/email_available/check', 'EmailAvailable@check')->name('email_available.check')->middleware('auth');
+//Route::get('/email_available', 'EmailAvailable@index')->middleware('auth');
+//Route::post('/email_available/check', 'EmailAvailable@check')->name('email_available.check')->middleware('auth');
 
 
 
@@ -75,8 +75,11 @@ Route::group(['prefix'=>'suscriptor','middleware'=>'role:suscriptor'],function()
     Route::get('Historial','Suscriptor\historial@index');
     Route::get('Estado','Suscriptor\historial@index2');
 
-     Route::resource('Servicios','Suscriptor\Servicios');
+    // Route::resource('Servicios','Suscriptor\Servicios');
 
+     Route::get('Servicios','Suscriptor\Servicios@index');
+     Route::get('SuscribirceServicio','Suscriptor\Servicios@store');
+    
 });
 
 
