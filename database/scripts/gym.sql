@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 09-06-2020 a las 02:04:29
+-- Tiempo de generación: 09-06-2020 a las 17:51:24
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.2.19
 
@@ -56,11 +56,8 @@ CREATE TABLE `mensualidades` (
 --
 
 INSERT INTO `mensualidades` (`id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, '2020-06-09 01:39:40', '2020-06-09 01:39:40'),
-(2, 4, 0, '2020-06-09 01:39:54', '2020-06-09 01:39:54'),
-(8, 6, 1, '2020-06-09 04:01:55', '2020-06-09 04:01:55'),
-(11, 11, 0, '2020-06-09 04:35:20', '2020-06-09 04:35:20'),
-(12, 12, 0, '2020-06-09 06:55:33', '2020-06-09 06:55:33');
+(1, 3, 0, '2020-06-08 17:50:56', NULL),
+(2, 4, 0, '2020-06-08 17:51:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -103,15 +100,6 @@ CREATE TABLE `pagos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `pagos`
---
-
-INSERT INTO `pagos` (`id`, `user_id`, `suscripcion_id`, `created_at`, `updated_at`) VALUES
-(6, 3, 12, '2020-06-09 06:44:26', '2020-06-09 06:44:26'),
-(7, 3, 13, '2020-06-09 06:47:52', '2020-06-09 06:47:52'),
-(8, 12, 14, '2020-06-09 06:55:41', '2020-06-09 06:55:41');
 
 -- --------------------------------------------------------
 
@@ -164,11 +152,7 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`) VALUES
 (1, 2, 1),
 (2, 2, 2),
 (3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 6),
-(11, 1, 11),
-(12, 1, 12);
+(4, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -191,15 +175,6 @@ CREATE TABLE `servicios` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `servicios`
---
-
-INSERT INTO `servicios` (`id`, `nombre`, `costo`, `mora`, `horario`, `imagen1`, `imagen2`, `imagen3`, `slug`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Yoga', 250, 50, '10:00', '1591647971yoga 2.jpg', '1591647971yoga 1.jpg', '1591647971yoga 3.jpg', 'Yoga', '2020-06-09 01:26:11', '2020-06-09 01:26:11', NULL),
-(2, 'Zumba', 300, 30, '12:00', '1591647997zumba 1.jpg', '1591647997zumba 2.jpg', '1591647997zumba 3.jpeg', 'Zumba', '2020-06-09 01:26:37', '2020-06-09 01:26:37', NULL),
-(3, 'Gym', 250, 30, '12:00', '1591648028gym 1.jpg', '1591648028gym 2.jpg', '1591648028gym 3.jpg', 'Gym', '2020-06-09 01:27:08', '2020-06-09 01:27:08', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -213,16 +188,6 @@ CREATE TABLE `suscripcions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `suscripcions`
---
-
-INSERT INTO `suscripcions` (`id`, `user_id`, `servicio_id`, `created_at`, `updated_at`) VALUES
-(11, 3, 3, '2020-06-02 01:33:00', NULL),
-(12, 3, 3, '2020-06-09 06:44:26', '2020-06-09 06:44:26'),
-(13, 3, 1, '2020-06-09 06:47:52', '2020-06-09 06:47:52'),
-(14, 12, 3, '2020-06-09 06:55:41', '2020-06-09 06:55:41');
 
 -- --------------------------------------------------------
 
@@ -249,14 +214,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `direccion`, `rfc`, `celular`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'cobrador1', 'avenida cobrador1', '1234cobrador1', '0987654321', 'cobrador1@gmail.com', NULL, '$2y$10$4TjujHiqhu90QFRctsclIurtxAo6TJ8vzpmij1ruEYWT6nDHD914q', NULL, '2020-06-09 00:21:53', '2020-06-09 00:21:53'),
-(2, 'cobrador2', 'avenida cobrador2', '1234cobrador2', '12345678990', 'cobrador2@gmail.com', NULL, '$2y$10$/uGEg/Qel0cc0Ds9.t7ga.GPU3ggl5fk4pr039i8q1FZKClpM5WJq', NULL, '2020-06-09 00:21:53', '2020-06-09 00:21:53'),
-(3, 'suscriptor1', 'avenida suscriptor1', '12suscriptor1', '1123456789', 'suscriptor1@gmail.com', NULL, '$2y$10$CVv76Fl4Q.hGRuzR8CFnsOPB/QYfcu4J696l14POFDx5/qA7qKZWW', NULL, '2020-06-09 00:21:53', '2020-06-09 00:21:53'),
-(4, 'suscriptor2', 'avenida suscriptor2', '12suscriptor2', '0012345678', 'suscriptor2@gmail.com', NULL, '$2y$10$GELKPGpqRbIYoSgZf6clpeH7goDK9.G0MouP9dOsK4TOLk/r5VbBe', NULL, '2020-06-09 00:21:53', '2020-06-09 00:21:53'),
-(5, 'Sergio Ricardo Nanguse González', 'calle ignacio lopez rayon', '1234567890123', '9613533279', 'sergioricardonangusegonzalez@gmail.com', NULL, '$2y$10$aRTbSAjLrBMSKEe5ghuzRuiOhzEn1OkZ/IpgIIz588as1TV7xyoKa', NULL, '2020-06-09 01:07:12', '2020-06-09 01:07:12'),
-(6, 'ivette', 'sdcsdcsdcs', '1234567890123', '1234567890', 'ive@gmail.com', NULL, '$2y$10$nrykC0ARriBTGfWTfJLBZeNTlSCMRPkwXgR01zA2iqt/YoxlHMKSe', NULL, '2020-06-09 03:58:48', '2020-06-09 03:58:48'),
-(11, 'Ana gonzalez reynosa', 'ddssdfsdf', '1234567890123', '1234567890', 'naru96@gmail.com', NULL, '$2y$10$UVaVorQXemw5T.mC9iOLeuk6X9hJel/ybylWu0aspEGeyFVj678Oe', NULL, '2020-06-09 04:35:20', '2020-06-09 04:35:20'),
-(12, 'Ana gonzalez reynosa', 'dssdfsd', '1234567890123', '1234567890', 'narutoremolinoo96@gmail.com', NULL, '$2y$10$5Zl5ASdu7CHDgBhEmgNblenHkVbuufhu9qY3NfP9.i0q3T7XrOevi', NULL, '2020-06-09 06:55:33', '2020-06-09 06:55:33');
+(1, 'cobrador1', 'avenida cobrador1', '1234cobrador1', '0987654321', 'cobrador1@gmail.com', NULL, '$2y$10$3.iyDwq0aPfZPbwXmh3Co.fuQ3REQ936Ot.8J0e99Wt2VJVzRAfW6', NULL, '2020-06-09 22:49:53', '2020-06-09 22:49:53'),
+(2, 'cobrador2', 'avenida cobrador2', '1234cobrador2', '12345678990', 'cobrador2@gmail.com', NULL, '$2y$10$27BqW3zGc6Hp6BQwp7fEreqG9i3yNCJIn1w3EDhpUTA4S4z9gq2Ju', NULL, '2020-06-09 22:49:53', '2020-06-09 22:49:53'),
+(3, 'suscriptor1', 'avenida suscriptor1', '12suscriptor1', '1123456789', 'suscriptor1@gmail.com', NULL, '$2y$10$6Fb98GojK2Nd44EBltE/0uFmi6CuAz7.nbqgvorCvmrgvyyJkQgoW', NULL, '2020-06-09 22:49:53', '2020-06-09 22:49:53'),
+(4, 'suscriptor2', 'avenida suscriptor2', '12suscriptor2', '0012345678', 'suscriptor2@gmail.com', NULL, '$2y$10$/7ZIcx6mttQx3xSzD.O.7el2DYNNm.xZhSBkmTcxk/4E0jyLkmxE.', NULL, '2020-06-09 22:49:53', '2020-06-09 22:49:53');
 
 --
 -- Índices para tablas volcadas
@@ -345,7 +306,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `mensualidades`
 --
 ALTER TABLE `mensualidades`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -357,7 +318,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -369,25 +330,25 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `suscripcions`
 --
 ALTER TABLE `suscripcions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
